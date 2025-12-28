@@ -18,9 +18,9 @@ intake1 = Motor(Ports.PORT1)
 intake2 = Motor(Ports.PORT2)
 
 matchLoader = Pneumatics(brain.three_wire_port.a)
-matchLoaderPos = 1
+matchLoaderPos = 0
 closet = Pneumatics(brain.three_wire_port.b)
-closetPos = 0
+closetPos = 1
 
 
 # Defining Drivetrain
@@ -38,7 +38,7 @@ wheelTravel = 220 # The circumference of the driven wheels.
 trackWidth = 200 # The track width of the Drivetrain
 wheelBase = 100 # The wheel base of the Drivetrain
 units = MM # The units that represent wheelTravel, trackWidth and wheelBase
-externalGearRatio = 60/36 # he gear ratio used to compensate drive distances if gearing is used.
+externalGearRatio = 60/36 # The gear ratio used to compensate drive distances if gearing is used.
 
 dt = DriveTrain(LeftSide, RightSide, wheelTravel, trackWidth, wheelBase, units, externalGearRatio)
 
@@ -88,6 +88,31 @@ def closetClose():
     if closetPos:
         closet.close
 
+def menu():
+    brain.screen.clear_screen()
+    brain.screen.set_font(FontType.PROP20)
+    brain.screen.set_pen_width(1)
+    brain.screen.set_pen_color(Color.BLACK)
+    brain.screen.draw_rectangle(1, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(60, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(120, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(180, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(240, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(300, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(360, 179, 60, 60, Color.WHITE)
+    brain.screen.draw_rectangle(420, 179, 59, 60, Color.WHITE)
+
+    brain.screen.draw_rectangle(1, 119, 59, 59, Color.RED)
+    brain.screen.draw_rectangle(419, 119, 59, 59, Color.RED)
+    brain.screen.set_font(FontType.PROP40)
+    brain.screen.set_cursor(1, 1)
+    brain.screen.print("Color")
+    brain.screen.set_cursor(3, 1)
+    brain.screen.print("Position")
+    brain.screen.set_font(FontType.PROP40)
+    brain.screen.set_cursor(25, 1)
+    brain.screen.print("Luminous")
+    
 
 
 def preAuton():
