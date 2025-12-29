@@ -35,8 +35,8 @@ LeftSide = MotorGroup(L1,L2 ,L3, False)
 RightSide = MotorGroup(R1,R2 ,R3, True)
 
 wheelTravel = 220 # The circumference of the driven wheels.
-trackWidth = 200 # The track width of the Drivetrain
-wheelBase = 100 # The wheel base of the Drivetrain
+trackWidth = 330 # The track width of the Drivetrain
+wheelBase = 355 # The wheel base of the Drivetrain
 units = MM # The units that represent wheelTravel, trackWidth and wheelBase
 externalGearRatio = 60/36 # The gear ratio used to compensate drive distances if gearing is used.
 
@@ -88,6 +88,79 @@ def closetClose():
     if closetPos:
         closet.close
 
+def onevent_controller_1buttonL2_pressed_0():
+    pass
+
+def onevent_controller_1buttonL2_released_0():
+    pass
+
+def onevent_controller_1buttonL1_pressed_0():
+    pass
+
+def onevent_controller_1buttonL1_released_0():
+    pass
+
+def onevent_controller_1buttonR1_pressed_0():
+    pass
+
+def onevent_controller_1buttonR1_released_0():
+    pass
+
+def onevent_controller_1buttonR2_pressed_0():
+    pass
+
+def onevent_controller_1buttonR2_released_0():
+    pass
+
+def onevent_controller_1buttonX_pressed_0():
+    pass
+
+def onevent_controller_1buttonX_released_0():
+    pass
+
+def onevent_controller_1buttonY_pressed_0():
+    pass
+
+def onevent_controller_1buttonY_released_0():
+    pass
+
+def onevent_controller_1buttonA_pressed_0():
+    pass
+
+def onevent_controller_1buttonA_released_0():
+    pass
+
+def onevent_controller_1buttonB_pressed_0():
+    pass
+
+def onevent_controller_1buttonB_released_0():
+    pass
+  
+def onevent_controller_1buttonUp_pressed_0():
+    pass
+
+def onevent_controller_1buttonUp_released_0():
+    pass
+
+def onevent_controller_1buttonDown_pressed_0():
+    pass
+
+def onevent_controller_1buttonDown_released_0():
+    pass
+
+def onevent_controller_1buttonRight_pressed_0():
+    pass
+
+def onevent_controller_1buttonRight_released_0():
+    pass
+
+def onevent_controller_1buttonLeft_pressed_0():
+    pass
+
+def onevent_controller_1buttonLeft_released_0():
+    pass
+
+
 def menu():
     brain.screen.clear_screen()
     brain.screen.set_font(FontType.PROP20)
@@ -119,7 +192,7 @@ def preAuton():
     brain.screen.clear_screen()
     brain.screen.print("Luminous")
 
-def auton1():
+def autonomous():
     brain.screen.clear_screen()
     brain.screen.print("autonomous code")
     
@@ -139,22 +212,35 @@ def user_control():
     brain.screen.print("driver control")
 
     while True:
-        LeftSide.set_velocity((controller.axis3.position() + controller.axis1.position()), PERCENT)
-        RightSide.set_velocity((controller.axis3.position() - controller.axis1.position()), PERCENT)
-        controller.buttonR1.pressed(intake)
-        controller.buttonR2.pressed(highGoal)
-        controller.buttonL1.pressed(midGoal)
-        controller.buttonL2.pressed(lowGoal)
-        controller.buttonR1.released(intakeStop)
-        controller.buttonR2.released(intakeStop)
-        controller.buttonL1.released(intakeStop)
-        controller.buttonL2.released(intakeStop)
-        controller.buttonA.pressed(matchLoaderToggle)
+        LeftSide.spin((controller.axis3.position() + controller.axis1.position()) / 8.3, VOLT)
+        RightSide.spin((controller.axis3.position() - controller.axis1.position()) / 8.3, VOLT)
         wait(15, MSEC)
 
-        
-        
 
-comp = Competition(user_control, auton1)
-preAuton()
+controller_1.buttonL1.pressed(onevent_controller_1buttonL1_pressed_0)
+controller_1.buttonL1.released(onevent_controller_1buttonL1_released_0)
+controller_1.buttonL2.pressed(onevent_controller_1buttonL2_pressed_0)
+controller_1.buttonL2.released(onevent_controller_1buttonL2_released_0)
+controller_1.buttonR1.pressed(onevent_controller_1buttonR1_pressed_0)
+controller_1.buttonR1.released(onevent_controller_1buttonR1_released_0)
+controller_1.buttonR2.pressed(onevent_controller_1buttonR2_pressed_0)
+controller_1.buttonR2.released(onevent_controller_1buttonR2_released_0)
+controller_1.buttonX.pressed(onevent_controller_1buttonX_pressed_0)
+controller_1.buttonX.released(onevent_controller_1buttonX_released_0)
+controller_1.buttonY.pressed(onevent_controller_1buttonY_pressed_0)
+controller_1.buttonY.released(onevent_controller_1buttonY_released_0)
+controller_1.buttonA.pressed(onevent_controller_1buttonA_pressed_0)
+controller_1.buttonA.released(onevent_controller_1buttonA_released_0)
+controller_1.buttonB.pressed(onevent_controller_1buttonB_pressed_0)
+controller_1.buttonB.released(onevent_controller_1buttonB_released_0)
+controller_1.buttonUp.pressed(onevent_controller_1buttonUp_pressed_0)
+controller_1.buttonUp.released(onevent_controller_1buttonUp_released_0)
+controller_1.buttonDown.pressed(onevent_controller_1buttonDown_pressed_0)
+controller_1.buttonDown.released(onevent_controller_1buttonDown_released_0)
+controller_1.buttonRight.pressed(onevent_controller_1buttonRight_pressed_0)
+controller_1.buttonRight.released(onevent_controller_1buttonRight_released_0)
+controller_1.buttonLeft.pressed(onevent_controller_1buttonLeft_pressed_0)
+controller_1.buttonLeft.released(onevent_controller_1buttonLeft_released_0)
 
+brain.screen.clear_screen()
+comp = Competition(user_control, autonomous)
