@@ -101,16 +101,16 @@ def onevent_controller_1buttonL1_released_0():
     pass
 
 def onevent_controller_1buttonR1_pressed_0():
-    pass
+    intake1.spin(FORWARD, 100, PERCENT, False)
 
 def onevent_controller_1buttonR1_released_0():
-    pass
+    intake1.stop()
 
 def onevent_controller_1buttonR2_pressed_0():
-    pass
+    intake2.spin(REVERSE, 100, PERCENT, False)
 
 def onevent_controller_1buttonR2_released_0():
-    pass
+    intake2.stop()
 
 def onevent_controller_1buttonX_pressed_0():
     pass
@@ -159,32 +159,6 @@ def onevent_controller_1buttonLeft_pressed_0():
 
 def onevent_controller_1buttonLeft_released_0():
     pass
-
-
-def menu():
-    brain.screen.clear_screen()
-    brain.screen.set_font(FontType.PROP20)
-    brain.screen.set_pen_width(1)
-    brain.screen.set_pen_color(Color.BLACK)
-    brain.screen.draw_rectangle(1, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(60, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(120, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(180, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(240, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(300, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(360, 179, 60, 60, Color.WHITE)
-    brain.screen.draw_rectangle(420, 179, 59, 60, Color.WHITE)
-
-    brain.screen.draw_rectangle(1, 119, 59, 59, Color.RED)
-    brain.screen.draw_rectangle(419, 119, 59, 59, Color.RED)
-    brain.screen.set_font(FontType.PROP40)
-    brain.screen.set_cursor(1, 1)
-    brain.screen.print("Color")
-    brain.screen.set_cursor(3, 1)
-    brain.screen.print("Position")
-    brain.screen.set_font(FontType.PROP40)
-    brain.screen.set_cursor(25, 1)
-    brain.screen.print("Luminous")
     
 
 class Button:
