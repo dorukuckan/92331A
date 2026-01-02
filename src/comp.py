@@ -11,7 +11,7 @@
 from vex import *
 
 brain = Brain()
-controller = Controller()
+controller_1 = Controller()
 
 # Defining Components
 intake1 = Motor(Ports.PORT1)
@@ -212,8 +212,8 @@ def user_control():
     brain.screen.print("driver control")
 
     while True:
-        LeftSide.spin((controller.axis3.position() + controller.axis1.position()) / 8.3, VOLT)
-        RightSide.spin((controller.axis3.position() - controller.axis1.position()) / 8.3, VOLT)
+        LeftSide.spin((controller_1.axis3.position() + controller_1.axis1.position()) / 8.3, VOLT)
+        RightSide.spin((controller_1.axis3.position() - controller_1.axis1.position()) / 8.3, VOLT)
         wait(15, MSEC)
 
 
