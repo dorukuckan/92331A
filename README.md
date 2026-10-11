@@ -1,9 +1,5 @@
 # VEX V5RC Team 92331A — Luminous ("Apollo")
 
-![VEX V5](https://img.shields.io/badge/Competition-VEX%20V5RC-red?style=for-the-badge)
-![Language](https://img.shields.io/badge/Language-C%2B%2B%20%2F%20Python-blue?style=for-the-badge)
-![Framework](https://img.shields.io/badge/Framework-PROS%20%2F%20VEXcode-orange?style=for-the-badge)
-
 Official robot software repository for **Team 92331A (Luminous)** and our competition robot **"Apollo"**, competing in the **VEX V5 Robotics Competition (V5RC)**.
 
 ---
